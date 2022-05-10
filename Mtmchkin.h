@@ -5,6 +5,7 @@
 #ifndef EX2_GAME_H
 #define EX2_GAME_H
 #include "Card.h"
+#include "Player.h"
 #include <iostream>
 
 /*
@@ -31,7 +32,11 @@ public:
 
 
     /*
-     * Play the next Card - according to the instruction in the exercise document
+     * Play the next Card - implements a round of the game :
+     * first a new card is drawn from the deck 
+     * types the info of the drawn card
+     * encounters the player with the card
+     * prints the player's stats after the encounter 
      *
      * @return
      *      void
@@ -43,8 +48,8 @@ public:
      *  Check if the game ended:
      *
      *  @return
-     *          True if the game ended
-     *          False otherwise
+     *      True if the game ended
+     *      False otherwise
      */
     bool isOver() const;
 
@@ -60,7 +65,11 @@ public:
     //TODO: complete the Mtmchkin class.
 
 private:
-    //TODO: complete the Mtmchkin class.
+    Player player;
+    int deckSize;
+    Card deck[deckSize];  //the default card ctor will be called card.h line 56 dynamic allocation ?
+    int currentCard;
+    GameStatus currentGameStatus;
 
 };
 
