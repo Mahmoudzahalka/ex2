@@ -41,14 +41,17 @@ void Card::applyEncounter(Player& player) const
 {
     if(m_effect == Battle)
     {                              //using getters because sadot are private 
-        if((player.getAttackStrength() >= m_stats.force)          // to use -> or . ?
+        if(player.getAttackStrength() >= m_stats.force)          // to use -> or . ?
         {
             player.levelUp();
             player.addCoins(m_stats.loot);
             printBattleResult(true);
         }
+        else 
+        {
         player.damage(m_stats.hpLossOnDefeat); //check if dead. return may not be neccesary 
         printBattleResult(false);
+        }
     }
     if(m_effect == Buff)
     {
