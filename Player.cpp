@@ -41,7 +41,7 @@ Player::Player(const Player& copiedPlayer):
 void Player::printInfo()
 {
      std::cout << "Player Details:" << endl;
-     printPlayerInfo(m_name, m_level, m_force, m_hp, m_coins);
+     printPlayerInfo(m_name.c_str(), m_level, m_force, m_hp, m_coins);
 }
 
 
