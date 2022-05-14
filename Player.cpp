@@ -1,46 +1,49 @@
+#include "Card.h"
+#include "utilities.h"
+#include <iostream>
 #include "Player.h"
 
 const int FIVE = 5;
 const int MAX_HEALTH_DEFAULT = 100;
 
-Player::Player(const char* name, int maxHp = MAX_HEALTH_DEFAULT , int force = FIVE ) :  
+Player::Player(const char* name, int maxHp , int force  ) :  
      m_name(name),
      m_level(1),
      m_coins(0)
 {
      if (force>0)
      {
-     m_force(force);
+     m_force=force;
      }
      else 
      {
-          m_force(FIVE);
+          m_force=FIVE;
      }
      if (maxHp>0)
      {
-     m_maxHp(maxHp);
-     m_hp(maxHp);
+     m_maxHp=maxHp;
+     m_hp=maxHp;
      }
      else 
      {
-          m_maxHp(MAX_HEALTH_DEFAULT);
-          m_hp(MAX_HEALTH_DEFAULT);
+          m_maxHp=MAX_HEALTH_DEFAULT;
+          m_hp=MAX_HEALTH_DEFAULT;
      }
 }
 
-Player::Player(const Player& copiedPlayer):
+/*Player::Player(const Player& copiedPlayer):
      m_name(copiedPlayer.m_name),       //check again 
      m_level(copiedPlayer.m_level),
      m_force(copiedPlayer.m_force),
      m_maxHp(copiedPlayer.m_maxHp),
      m_hp(copiedPlayer.m_maxHp),
      m_coins(copiedPlayer.m_coins)
-{}
+{}*/
 
 
 void Player::printInfo()
 {
-     std::cout << "Player Details:" << endl;
+     //std::cout << "Player Details:" << std::endl;
      printPlayerInfo(m_name.c_str(), m_level, m_force, m_hp, m_coins);
 }
 

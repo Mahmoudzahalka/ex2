@@ -6,6 +6,7 @@
 
 #include <string>
 #include "Player.h"
+//#include "Mtmchkin.h"
 #include "utilities.h"
 
 /*
@@ -16,6 +17,14 @@
  *  HEAL - Increase your player's HP by 'm_heal' points  of CardStats (no more than maxHP points).
  *  TREASURE - Get 'm_profit' coins of CardStats.
 */
+
+
+
+
+
+
+
+
 enum class CardType {Battle, Buff, Heal, Treasure}; // The type of the Card
 
 class Card {
@@ -69,6 +78,16 @@ private:
     CardStats m_stats;
 
 };
+
+
+
+
+
+
+
+
+
+
 
 
 #endif //EX2_Card_H

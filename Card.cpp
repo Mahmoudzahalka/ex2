@@ -1,5 +1,8 @@
 #include "Player.h"
 #include "utilities.h" 
+#include "Card.h"
+#include <iostream>
+
 
 
 
@@ -39,9 +42,9 @@ m_stats(stats)     //copy by value
 
 void Card::applyEncounter(Player& player) const
 {
-    if(m_effect == Battle)
+    if(m_effect == CardType::Battle)  //opertaor == 
     {                              //using getters because sadot are private 
-        if(player.getAttackStrength() >= m_stats.force)          // to use -> or . ?
+        if( (player.getAttackStrength()) >= (m_stats.force) )           // to use -> or . ?
         {
             player.levelUp();
             player.addCoins(m_stats.loot);
@@ -53,21 +56,21 @@ void Card::applyEncounter(Player& player) const
         printBattleResult(false);
         }
     }
-    if(m_effect == Buff)
+    if(m_effect == CardType::Buff)
     {
         if(player.pay(m_stats.cost))
         {
             player.buff(m_stats.buff);
         }
     }
-    if(m_effect == Heal)
+    if(m_effect == CardType::Heal)
     {
         if(player.pay(m_stats.cost))
         {
             player.heal(m_stats.buff);
         }
     }
-    if(m_effect == Treasure)
+    if(m_effect == CardType::Treasure)
     {
         player.addCoins(m_stats.loot);
     }  
@@ -76,9 +79,7 @@ void Card::applyEncounter(Player& player) const
 
 void Card::printInfo() const
 {
-    std::cout << "Card drawn:" << endl;
-    std::cout << "Type:" << m_effect << endl;
-    if(m_effect == Battle)
+    if(m_effect == CardType::Battle)
     {
         printBattleCardInfo(m_stats);
     }
@@ -86,17 +87,17 @@ void Card::printInfo() const
     {
        // std::cout << "Force: 0 " << endl;
     }*/
-    if(m_effect == Buff)
+    if(m_effect == CardType::Buff)
     {
         printBuffCardInfo(m_stats);
         //std::cout << "Damage taken (on loss): 0 " << endl;
     }
-    if(m_effect == Heal)
+    if(m_effect == CardType::Heal)
     {
         printHealCardInfo(m_stats);
         //std::cout << "Damage taken (on loss): 0 " << endl;
     }
-    if(m_effect == Treasure)
+    if(m_effect == CardType::Treasure)
     {
         printTreasureCardInfo(m_stats);
         //std::cout << "Damage taken (on loss): 0 " << endl;

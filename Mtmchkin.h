@@ -14,6 +14,11 @@
  * Win - The player reached level 10.
  * Loss - The player's HP is 0.
 */
+
+
+
+
+
 enum class GameStatus{Win, Loss, MidGame};
 
 class Mtmchkin {
@@ -62,12 +67,28 @@ public:
      */
     GameStatus getGameStatus() const;
 
-    //TODO: complete the Mtmchkin class.
+    /*
+     * copy c'tor :
+     *
+     */
+    Mtmchkin(const Mtmchkin&);
+
+    /*
+     * d'tor for the game:
+     */
+    ~Mtmchkin();
+
+    /*
+     * assignment operator for the game
+     */
+    Mtmchkin& operator=(const Mtmchkin&);
+    
+
 
 private:
     Player player;
     int deckSize;
-    Card deck[deckSize];  //the default card ctor will be called card.h line 56 dynamic allocation ?
+    Card *deck;
     int currentCard;
     GameStatus currentGameStatus;
 

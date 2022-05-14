@@ -2,21 +2,22 @@
 #define EX2_PLAYER_H
 
 #include <string>
+//#include "Mtmchkin.h"
 
-class Player
-{
+class Player {
 private:
-   std::string m_name;
+   std::string m_name;   //may be probmlematic in advance copy c'tor
    int m_level;
    int m_force;
    int m_maxHp;
    int m_hp ;
    int m_coins;
-
+   friend class Mtmchkin;
 
 public:
     Player(const char* name, int maxHp = 100, int force = 5);
-    Player(const Player& copiedPlayer);
+    Player(const Player& copiedPlayer)=default;
+    ~Player()=default;
     void printInfo();
     void levelUp();
     int getLevel();
@@ -28,7 +29,7 @@ public:
     bool pay(int value);
     int getAttackStrength();
     
-}
+};
 
 
 #endif //EX2_PLAYER_H
