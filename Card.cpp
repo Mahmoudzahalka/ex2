@@ -67,7 +67,7 @@ void Card::applyEncounter(Player& player) const
     {
         if(player.pay(m_stats.cost))
         {
-            player.heal(m_stats.buff);
+            player.heal(m_stats.heal); 
         }
     }
     if(m_effect == CardType::Treasure)
